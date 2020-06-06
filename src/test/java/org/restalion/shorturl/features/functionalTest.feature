@@ -6,7 +6,14 @@ Background:
 Scenario: create a new short-url
 
 Given path '/'
-And request {actualUrl: 'www.google.com'}
+And request {actualUrl: 'https://www.google.com'}
 When method post
 Then status 200
-And match response == {actualUrl: 'www.google.com', shortenUrl: '#regex http://www.shorten-url.com/[a-zA-Z0-9]{16}'}
+And match response == {actualUrl: 'https://www.google.com', shortenUrl: '#regex http://www.shorten-url.com/[a-zA-Z0-9]{16}'}
+
+Scenario: create a new invalid short-url
+
+Given path '/'
+And request {actualUrl: 'invalid-url'}
+When method post
+Then status 500
