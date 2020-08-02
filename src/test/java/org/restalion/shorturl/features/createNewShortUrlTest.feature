@@ -15,5 +15,5 @@ Scenario: create a new invalid short-url
 
 Given path '/'
 And request {actualUrl: 'invalid-url'}
-When method post
+When method post    
 Then status 500
