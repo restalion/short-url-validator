@@ -9,7 +9,12 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 class FunctionalTest {
     
     @Karate.Test
-    Karate functionalTest() {
-        return Karate.run("features/functionalTest").relativeTo(getClass());
+    Karate createNewShortUrlTest() {
+        return Karate.run("features/createNewShortUrlTest").relativeTo(getClass());
+    }
+
+    @Karate.Test
+    Karate useShortUrlTest() {
+        return Karate.run("features/useShortUrlTest").relativeTo(getClass());
     }
 }
